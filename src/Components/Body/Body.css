@@ -1,8 +1,5 @@
 .body {
   margin: 0.75em 0 0;
-  /* background-color: blue;
-  height: calc(100vh - 17em); ბადის ტასკ კონტეინერისთვის */
-  /* height: inherit; */
 }
 
 .controls {
@@ -86,8 +83,6 @@
 .card .controls {
   height: fit-content;
   align-items: center;
-  /* color: #6c86a8;
-  font-size: 0.75em; */
 }
 
 .rotated-arrow-btn {

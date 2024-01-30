@@ -1,15 +1,11 @@
 #root {
   background-color: #e8f1fd;
-  /* width: 100vw; */
   padding: 1.75em 1.25em;
-  /* overflow: hidden; */
 }
 
 .app {
   height: calc(100vh - 3.5em);
   font-family: Poppins;
-  /* overflow-y: auto; */
-  /* overflow: hidden; */
 }
 .no-style-button,
 .secondary-button {

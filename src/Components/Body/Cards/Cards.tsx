@@ -11,7 +11,6 @@ const Cards = ({ data }: CardsProps) => {
       {data.map((task, id) => (
         <Card task={task} key={`task-card-${id}`} />
       ))}
-      {/* {data[0] && <Card task={data[0]} key="card" />} */}
     </div>
   );
 };
