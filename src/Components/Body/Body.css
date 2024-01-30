@@ -1,0 +1,129 @@
+.body {
+  margin: 0.75em 0 0;
+  /* background-color: blue;
+  height: calc(100vh - 17em); ბადის ტასკ კონტეინერისთვის */
+  /* height: inherit; */
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  height: 4em;
+}
+.controls button {
+  color: #30507d;
+}
+.page-btn {
+  font-size: 0.75em;
+}
+.page-btn img {
+  background-color: #d8d8d8;
+  margin-right: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  margin: auto;
+  display: block;
+}
+.active-page-btn img {
+  background-color: #6a6ce0;
+}
+
+.Search {
+  display: flex;
+  align-items: center;
+  background-color: #fffefc;
+  padding: 0 0.5em;
+  border-radius: 0.5em;
+  box-shadow: 0px 2px 4px 0px #6a6ce026;
+  margin-bottom: 3em;
+}
+.Search button {
+  background-color: #6a6ce0;
+  height: 2em;
+  width: 2em;
+  border-radius: 0.5em;
+}
+.Search input {
+  height: 2.75em;
+  width: -webkit-fill-available;
+  border: none;
+  outline: none;
+  background: none;
+}
+.Search input::placeholder {
+  color: #b0b0b0;
+  opacity: 1;
+}
+
+.Search input ::-ms-input-placeholder {
+  color: #b0b0b0;
+}
+
+.card {
+  background-color: #f6faff;
+  padding: 1em;
+  border-radius: 0.75em;
+  margin-bottom: 1em;
+  color: #30507d;
+  box-shadow: 0px 2px 8px 0px #6a6ce042;
+}
+
+.card .title {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.card .details {
+  background-color: #e8f1fd;
+  padding: 1em;
+  box-shadow: 1px 1px 4px 0px #30507d40 inset;
+  font-size: 0.75em;
+  margin: 1.75em 0;
+  color: #6c86a8;
+}
+
+.card .controls {
+  height: fit-content;
+  align-items: center;
+  /* color: #6c86a8;
+  font-size: 0.75em; */
+}
+
+.rotated-arrow-btn {
+  rotate: 180deg;
+  transition-duration: 1s;
+}
+.arrow-btn {
+  rotate: 0deg;
+  transition-duration: 1s;
+}
+
+.cards-container {
+  margin-top: 0.75em;
+  height: calc(100vh - 18em);
+  overflow-y: scroll;
+}
+
+.add-tem-btn {
+  background-color: #6a6ce0;
+  height: 5em;
+  width: 5em;
+  border-radius: 2.5em;
+
+  position: absolute;
+  bottom: 1em;
+  left: calc(50% - 3em);
+}
+
+.add-tem-btn img {
+  width: 1.75em;
+  margin: auto;
+  display: block;
+}
+.complete-task > div {
+  color: #6c86a8;
+  font-size: 0.75em;
+  margin: auto;
+  margin-right: 0.75em;
+}

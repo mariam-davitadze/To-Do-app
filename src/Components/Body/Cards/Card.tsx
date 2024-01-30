@@ -1,0 +1,74 @@
+import Task from "../../../constants/Task";
+import editIcon from "../../../assets/icons/edit.svg";
+import deleteIcon from "../../../assets/icons/delete.svg";
+import checkMarkIcon from "../../../assets/icons/check.svg";
+import arrowIcon from "../../../assets/icons/arrow.svg";
+import { useState } from "react";
+
+interface CardProps {
+  task: Task;
+}
+
+const Card = ({ task }: CardProps) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const onExpand = () => {
+    setIsOpen(!isOpen);
+  };
+  const onEdit = () => {
+    // handle edit
+    console.log("this should open modal for editing");
+  };
+  const onDelete = () => {
+    // handle delete
+    console.log("this should delete task");
+  };
+  const onComplete = () => {
+    // handle complete
+    console.log("this should mark task as completed");
+  };
+  return (
+    <div className="card">
+      <div className="flex sp-btw">
+        <div className="title">{task.title}</div>
+        <button
+          className={`no-style-button ${
+            isOpen ? "arrow-btn" : "rotated-arrow-btn"
+          }`}
+          onClick={onExpand}
+        >
+          <img alt="arrow-icon" src={arrowIcon} />
+        </button>
+      </div>
+      {isOpen && (
+        <>
+          <div className="details">{task.description}</div>
+          <div className="controls">
+            <div>
+              {!task.isCompleted && (
+                <button className="no-style-button" onClick={onEdit}>
+                  <img alt="edit-task-icon" src={editIcon} />
+                </button>
+              )}
+              <button className="no-style-button" onClick={onDelete}>
+                <img alt="delete-task-icon" src={deleteIcon} />
+              </button>
+            </div>
+            <div>
+              <button
+                className="no-style-button flex complete-task"
+                disabled={task.isCompleted}
+                onClick={onComplete}
+              >
+                <div>{task.isCompleted ? "Completed" : "Mark completed"}</div>
+                <img alt="checkmark-icon" src={checkMarkIcon} />
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Card;
