@@ -41,6 +41,12 @@
   width: 2em;
   border-radius: 0.5em;
 }
+
+.Search button img {
+  margin: auto;
+  display: block;
+}
+
 .Search input {
   height: 2.75em;
   width: -webkit-fill-available;

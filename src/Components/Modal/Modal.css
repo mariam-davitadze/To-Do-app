@@ -1,0 +1,71 @@
+.modal {
+  background-color: rgba(144, 138, 138, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 50;
+}
+.modal > div {
+  background-color: #f6faff;
+  width: 82%;
+  margin: auto;
+  margin-top: 50vh;
+  padding: 1em;
+  border-radius: 1em;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.modal-header {
+  text-align: center;
+}
+.close-modal-btn {
+  position: absolute;
+  right: 2.25em;
+}
+.modal input {
+  margin-top: 1em;
+  border: 1px solid #6a6ce0;
+  width: -webkit-fill-available;
+  padding: 0.75em;
+  border-radius: 0.5em;
+  outline: none;
+}
+
+.modal input::placeholder {
+  color: #b0b0b0;
+  opacity: 1;
+}
+
+.modal input ::-ms-input-placeholder {
+  color: #b0b0b0;
+}
+
+.modal textarea {
+  margin-top: 0.75em;
+  width: -webkit-fill-available;
+  padding: 1em;
+  height: 6em;
+  background-color: #e8f1fd;
+  border: none;
+  box-shadow: 1px 1px 4px 0px #30507d40 inset;
+  resize: none;
+}
+.modal textarea:active,
+.modal textarea:focus {
+  outline: 0;
+}
+.save-button {
+  background-color: #6a6ce0;
+  color: #fffefc;
+  width: -webkit-fill-available;
+  padding: 0.75em;
+  border-radius: 0.5em;
+  margin-top: 0.5em;
+}
+
+.save-button:disabled {
+  background-color: #d8d8d8;
+}

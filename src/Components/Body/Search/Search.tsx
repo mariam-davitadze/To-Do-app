@@ -4,7 +4,7 @@ const Search = () => {
   return (
     <div className="Search">
       <input placeholder="Search for notes" />
-      <button>
+      <button className="no-style-button">
         <img alt="search-icon" src={SearchIcon} />
       </button>
     </div>

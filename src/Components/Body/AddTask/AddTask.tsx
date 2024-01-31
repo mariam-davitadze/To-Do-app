@@ -1,7 +1,10 @@
 import AddIcon from "../../../assets/icons/plus.svg";
-const AddTask = () => {
+interface AddTaskProps {
+  onAddTaskRequest: () => void;
+}
+const AddTask = ({ onAddTaskRequest }: AddTaskProps) => {
   return (
-    <button className="no-style-button add-tem-btn">
+    <button className="no-style-button add-tem-btn" onClick={onAddTaskRequest}>
       <img alt="add-item-icon" src={AddIcon} />
     </button>
   );

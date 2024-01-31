@@ -7,17 +7,14 @@ import { useState } from "react";
 
 interface CardProps {
   task: Task;
+  onEdit: () => void;
 }
 
-const Card = ({ task }: CardProps) => {
+const Card = ({ task, onEdit }: CardProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const onExpand = () => {
     setIsOpen(!isOpen);
-  };
-  const onEdit = () => {
-    // handle edit
-    console.log("this should open modal for editing");
   };
   const onDelete = () => {
     // handle delete
@@ -29,13 +26,12 @@ const Card = ({ task }: CardProps) => {
   };
   return (
     <div className="card">
-      <div className="flex sp-btw">
+      <div className="flex sp-btw" onClick={onExpand}>
         <div className="title">{task.title}</div>
         <button
           className={`no-style-button ${
             isOpen ? "arrow-btn" : "rotated-arrow-btn"
           }`}
-          onClick={onExpand}
         >
           <img alt="arrow-icon" src={arrowIcon} />
         </button>
