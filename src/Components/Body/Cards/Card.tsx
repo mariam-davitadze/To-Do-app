@@ -8,22 +8,17 @@ import { useState } from "react";
 interface CardProps {
   task: Task;
   onEdit: () => void;
+  onDelete: () => void;
+  onComplete: () => void;
 }
 
-const Card = ({ task, onEdit }: CardProps) => {
+const Card = ({ task, onEdit, onDelete, onComplete }: CardProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const onExpand = () => {
     setIsOpen(!isOpen);
   };
-  const onDelete = () => {
-    // handle delete
-    console.log("this should delete task");
-  };
-  const onComplete = () => {
-    // handle complete
-    console.log("this should mark task as completed");
-  };
+
   return (
     <div className="card">
       <div className="flex sp-btw" onClick={onExpand}>

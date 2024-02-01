@@ -14,6 +14,7 @@ interface ModalProps {
 
 const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
   const [newTask, setNewTask] = useState<Task>({
+    id: "",
     title: "",
     description: "",
     isCompleted: false,
@@ -21,8 +22,7 @@ const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
 
   useEffect(() => {
     if (task) {
-      const { title, description, isCompleted } = task;
-      setNewTask({ title, description, isCompleted });
+      setNewTask({ ...task });
     }
   }, [task]);
 
@@ -56,6 +56,17 @@ const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
     return false;
   }, [newTask, task, mode]);
 
+  const handleSave = () => {
+    if (!isDataValid) {
+      return;
+    }
+    if (mode === ModalMode.edit) {
+      onSave(newTask);
+      return;
+    }
+    onSave({ ...newTask, id: Date.now().toString(), isCompleted: false });
+  };
+
   return (
     <div className="modal">
       <div>
@@ -78,7 +89,7 @@ const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
 
         <button
           className="no-style-button save-button"
-          onClick={() => onSave(newTask)}
+          onClick={handleSave}
           disabled={!isDataValid}
         >
           Save

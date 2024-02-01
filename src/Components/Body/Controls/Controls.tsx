@@ -11,9 +11,14 @@ const pagesData = {
 type PageControlsProps = {
   currentPage: Pages;
   onPageChange: (page: Pages) => void;
+  onClear: () => void;
 };
 
-const Controls = ({ currentPage, onPageChange }: PageControlsProps) => {
+const Controls = ({
+  currentPage,
+  onPageChange,
+  onClear,
+}: PageControlsProps) => {
   return (
     <div className="controls">
       <div>
@@ -32,7 +37,7 @@ const Controls = ({ currentPage, onPageChange }: PageControlsProps) => {
           </button>
         ))}
       </div>
-      <button className="secondary-button">
+      <button className="secondary-button" onClick={onClear}>
         {pagesData[currentPage].clearText}
       </button>
     </div>
