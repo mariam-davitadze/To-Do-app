@@ -36,9 +36,7 @@ const Body = () => {
     });
   }, [searchText]);
 
-  const handlePageChange = (page: Pages) => {
-    setCurrentPage(page);
-  };
+  const handlePageChange = (page: Pages) => setCurrentPage(page);
 
   const handleAddTaskRequest = () =>
     setModalData({ isOpen: true, mode: ModalMode.add });
@@ -119,9 +117,7 @@ const Body = () => {
     setTodoData({ ...todoData, [Pages.history]: [] });
   };
 
-  const handleSearch = (searchText: string) => {
-    setSearchText(searchText);
-  };
+  const handleSearch = (searchText: string) => setSearchText(searchText);
 
   return (
     <div className="body">

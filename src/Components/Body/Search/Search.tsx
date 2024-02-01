@@ -1,6 +1,5 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { useRef } from "react";
 import SearchIcon from "../../../assets/icons/white_search.svg";
-import useDebouncedCallback from "../../hooks/useDebouncedCallback";
 interface SearchProps {
   onSearch: (searchTest: string) => void;
 }
