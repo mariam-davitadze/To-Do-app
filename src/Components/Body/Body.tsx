@@ -23,6 +23,7 @@ interface Modaldata {
 const Body = () => {
   const [currentPage, setCurrentPage] = useState<Pages>(Pages.tasks);
   const [modalData, setModalData] = useState<Modaldata>({ isOpen: false });
+  const [searchText, setSearchText] = useState("");
   const [todoData, setTodoData] = useState<TodoData>({
     [Pages.tasks]: [],
     [Pages.history]: [],
@@ -30,10 +31,10 @@ const Body = () => {
 
   useEffect(() => {
     setTodoData({
-      [Pages.tasks]: API.getActiveTasks(),
-      [Pages.history]: API.getTaskHistory(),
+      [Pages.tasks]: API.getActiveTasks(searchText),
+      [Pages.history]: API.getTaskHistory(searchText),
     });
-  }, []);
+  }, [searchText]);
 
   const handlePageChange = (page: Pages) => {
     setCurrentPage(page);
@@ -118,6 +119,10 @@ const Body = () => {
     setTodoData({ ...todoData, [Pages.history]: [] });
   };
 
+  const handleSearch = (searchText: string) => {
+    setSearchText(searchText);
+  };
+
   return (
     <div className="body">
       {modalData.isOpen && (
@@ -128,7 +133,7 @@ const Body = () => {
           onClose={closeModal}
         />
       )}
-      <Search />
+      <Search onSearch={handleSearch} />
       <Controls
         currentPage={currentPage}
         onPageChange={handlePageChange}

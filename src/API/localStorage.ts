@@ -7,7 +7,12 @@ const getTasksArray = () => {
 const setUpdatetTasks = (tasks: Task[]) => {
   localStorage["tasks"] = JSON.stringify(tasks);
 };
-
+const filterCheck = (task: Task, searchText?: string) => {
+  if (!searchText) return true;
+  return (
+    task.title.includes(searchText) || task.description.includes(searchText)
+  );
+};
 export const addTask = (task: Task) => {
   const tasks: Task[] = getTasksArray();
   if (!tasks.length) {
@@ -17,13 +22,17 @@ export const addTask = (task: Task) => {
   setUpdatetTasks(tasks);
 };
 
-export const getActiveTasks = () => {
-  const activeTasks = getTasksArray().filter((task: Task) => !task.isCompleted);
+export const getActiveTasks = (searchText?: string) => {
+  const activeTasks = getTasksArray().filter(
+    (task: Task) => !task.isCompleted && filterCheck(task, searchText)
+  );
   return activeTasks;
 };
 
-export const getTaskHistory = () => {
-  const tasksHistory = getTasksArray().filter((task: Task) => task.isCompleted);
+export const getTaskHistory = (searchText?: string) => {
+  const tasksHistory = getTasksArray().filter(
+    (task: Task) => task.isCompleted && filterCheck(task, searchText)
+  );
   return tasksHistory;
 };
 

@@ -28,15 +28,13 @@ const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
 
   const onNameChange = useDebouncedCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      const { ...rest } = newTask;
-      setNewTask({ ...rest, title: e.target.value });
+      setNewTask({ ...newTask, title: e.target.value });
     }
   );
 
   const onDescriptionChange = useDebouncedCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => {
-      const { ...rest } = newTask;
-      setNewTask({ ...rest, description: e.target.value });
+      setNewTask({ ...newTask, description: e.target.value });
     }
   );
 
