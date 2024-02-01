@@ -39,7 +39,7 @@ const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
   );
 
   const isDataValid = useMemo(() => {
-    if (!(newTask.title && newTask.description)) {
+    if (!(newTask.title.trim() && newTask.description.trim())) {
       return false;
     }
     if (mode === ModalMode.add) {
@@ -58,11 +58,16 @@ const Modal = ({ mode, onSave, onClose, task }: ModalProps) => {
     if (!isDataValid) {
       return;
     }
+    const trimmedData = {
+      ...newTask,
+      title: newTask.title.trim(),
+      description: newTask.description.trim(),
+    };
     if (mode === ModalMode.edit) {
-      onSave(newTask);
+      onSave(trimmedData);
       return;
     }
-    onSave({ ...newTask, id: Date.now().toString(), isCompleted: false });
+    onSave({ ...trimmedData, id: Date.now().toString(), isCompleted: false });
   };
 
   return (

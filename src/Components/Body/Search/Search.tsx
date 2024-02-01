@@ -8,7 +8,7 @@ const Search = ({ onSearch }: SearchProps) => {
 
   const handleSearch = () => {
     if (!searchInput.current) return;
-    onSearch(searchInput.current.value);
+    onSearch(searchInput.current.value.trim());
   };
 
   return (
